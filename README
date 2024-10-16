@@ -1,0 +1,32 @@
+Python version 3
+BeautifulSoup 4
+
+Necessary files:
+gdocHtmlCleaner.py
+gdocHtmlCleanerFunctions.py
+
+Usage: `python gdocHtmlCleaner.py google-doc.html > google-doc-clean.html`
+
+The Google doc must be well-formed. Header tags, normal text and so forth. You
+will need to go through it carefully and correct things at minimum. Take a
+moment to look at the link texts. Are they informative? Can one tell where a
+link will take them simply from reading the link text? That's how to do it!
+https://www.wcag.com/blog/writing-meaningful-link-text/
+
+If the document has sections composed of h4 header tags and unordered lists, like
+so...
+
+<h4>Member Resources Assistant</h4>
+<ul>
+  <li>17 hrs./ wk. </li>
+  <li>Preference will be given to former house managers. </li>
+  <li>Provides support for and assistance to the Member Resources Coordinator in
+  their duties. </li>
+  <li>Assists in the organization and development of training programs, New
+  Member Orientation, and NASCO Institute.</li>
+  <li>Provides clerical support and budget monitoring.</li>
+</ul>
+
+...it will attempt to turn them into definition lists (<dl>, <dd>, <dt>).
+
+It's a fairly brittle script, and you'll probably have to fix things a bit (or a lot).

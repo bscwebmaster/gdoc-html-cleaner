@@ -31,6 +31,20 @@ makeDlists(soup)
 pretty_html = soup.prettify()
 
 # Output the result
-print(pretty_html)
+#print(pretty_html)
+
+# return some closing tags (links, bolds, headers and line breaks) to a single line
+# This prevents Drupal from adding non-breaking spaces inside these tags.
+# Probably I should figure out why Drupal is doing that and make it stop,
+# but here we are.
+print(multi_sub([
+    ("\n +<br/>", "<br/>"),
+    ("\n +</h1>", "</h1>"),
+    ("\n +</h2>", "</h2>"),
+    ("\n +</h3>", "</h3>"),
+    ("\n +</h4>", "</h4>"),
+    ("\n +</strong>", "</strong>"),
+    ("\n +</a>", "</a>")
+    ], pretty_html))
 
 html_content.close()

@@ -42,3 +42,18 @@ def makeDlists(soup):
             last_tag = mylist.wrap(soup.new_tag("dl"))
             continue
         last_tag.append(mylist)
+
+# return some tags (links, headers and line breaks) to a single row
+# thanks to Eric https://stackoverflow.com/users/102441/eric
+# https://stackoverflow.com/questions/15175142/how-can-i-do-multiple-substitutions-using-regex
+def multi_sub(pairs, s):
+    def repl_func(m):
+        # only one group will be present, use the corresponding match
+        return next(
+            repl
+            for (patt, repl), group in zip(pairs, m.groups())
+            if group is not None
+        )
+    pattern = '|'.join("({})".format(patt) for patt, _ in pairs)
+    return re.sub(pattern, repl_func, s)
+

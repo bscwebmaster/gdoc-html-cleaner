@@ -6,6 +6,7 @@ gdocHtmlCleaner.py
 gdocHtmlCleanerFunctions.py
 
 Usage: `python gdocHtmlCleaner.py google-doc.html > google-doc-clean.html`
+Example google doc: https://docs.google.com/document/d/1fn-Yoy671f5nw8sSHsDHJohZRlp9zW-K6ZOLCX_R3b8/edit?usp=sharing
 
 The Google doc must be well-formed. Header tags, normal text and so forth. You
 will need to go through it carefully and correct things at minimum. Take a
